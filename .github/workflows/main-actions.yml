@@ -12,6 +12,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: |
+        go mod vendor
+        go mod tidy
         HOMEBREW_NO_AUTO_UPDATE=1 brew install git-lfs
         curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.37.0
         git lfs pull
