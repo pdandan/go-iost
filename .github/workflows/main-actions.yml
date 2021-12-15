@@ -50,6 +50,8 @@ jobs:
     - run: echo $PATH
     - run: |
         ls
+        cd vendor/github.com/syndtr/goleveldb/leveldb
+        ls
     # - run: |
     #     ll
     #     curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh| sh -s -- -b $(go env GOPATH)/bin v1.37.0
