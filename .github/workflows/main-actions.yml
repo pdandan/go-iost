@@ -24,8 +24,10 @@ jobs:
         go-version: 1.17
     
     - run: go version
+    - run: go mod vendor
     # - run: git lfs version
     - run: |
+        
         docker pull iostio/iost-dev:3.7.1
         echo ${{ secrets.DOCKERHUBPWD }} | docker login --username ${{ secrets.DOCKERHUBID }}  --password-stdin
         git lfs pull
