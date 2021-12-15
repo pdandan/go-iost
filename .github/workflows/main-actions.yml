@@ -49,15 +49,16 @@ jobs:
     - run: echo $(go env GOPATH)
     - run: echo $PATH
     - run: echo $HOME
-    - run: |
-        ls
-        cd vendor/github.com/syndtr/goleveldb/leveldb
-        ls
+    - run: pwd
     # - run: |
-    #     ll
-    #     curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh| sh -s -- -b $(go env GOPATH)/bin v1.37.0
-    #     git lfs pull
-    #     make vmlib_install
-    #     make build
-    #     PATH=$(go env GOPATH)/bin:$PATH make lint
-    #     make test
+    #     ls
+    #     cd vendor/github.com/syndtr/goleveldb/leveldb
+    #     ls
+    - run: |
+        ll
+        curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh| sh -s -- -b $(HOME)/bin v1.37.0
+        git lfs pull
+        make vmlib_install
+        make build
+        PATH=$(go env GOPATH)/bin:$PATH make lint
+        make test
