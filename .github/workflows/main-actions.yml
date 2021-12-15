@@ -48,6 +48,7 @@ jobs:
     - run: go env
     - run: echo $(go env GOPATH)
     - run: echo $PATH
+    - run: echo $HOME
     - run: |
         ls
         cd vendor/github.com/syndtr/goleveldb/leveldb
