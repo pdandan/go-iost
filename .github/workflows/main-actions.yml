@@ -1,0 +1,34 @@
+name: My Main Branch GitHub Actions Demo
+# on: [push]
+on:
+  push:
+    branches: [ main ]
+    # paths:
+    #   - src/*
+  # pull_request:
+  #   branches: [ $default-branch ]
+jobs:
+  My-Main-GitHub-Actions:
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - run: echo "main branch first commit txt"
+    #   - run: docker --version
+    # runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.17
+    
+    - run: go version
+    # - run: git lfs version
+    - run: |
+        docker pull iostio/iost-dev:3.7.1
+        echo ${{ secrets.DOCKERHUBPWD }} | docker login --username ${{ secrets.DOCKERHUBID }}  --password-stdin
+        git lfs pull
+        make docker_build
+        make docker_lint
+        make docker_test
