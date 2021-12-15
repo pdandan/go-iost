@@ -89,9 +89,9 @@ e2e_test: image
 	docker rm -f iserver || true
 	docker run -d --name iserver $(DOCKER_IMAGE)
 	sleep 20
-	docker exec -it iserver ./itest run a_case
-	docker exec -it iserver ./itest run t_case
-	docker exec -it iserver ./itest run c_case
+	docker exec -i iserver ./itest run a_case
+	docker exec -i iserver ./itest run t_case
+	docker exec -i iserver ./itest run c_case
 
 image:
 	$(DEV_DOCKER_RUN) make BUILD_TIME=$(BUILD_TIME)

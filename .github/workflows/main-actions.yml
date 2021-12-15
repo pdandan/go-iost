@@ -34,7 +34,6 @@ jobs:
     
     - run: |
         go mod vendor
-        go mod tidy
         docker pull iostio/iost-dev:3.7.1
         echo ${{ secrets.DOCKERHUBPWD }} | docker login --username ${{ secrets.DOCKERHUBID }}  --password-stdin
         git lfs pull
