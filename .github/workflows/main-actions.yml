@@ -1,4 +1,4 @@
-name: My Main Branch GitHub Actions Demo
+name: go-iost GitHub CI
 # on: [push]
 on: workflow_dispatch
 
