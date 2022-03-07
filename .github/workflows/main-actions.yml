@@ -1,6 +1,6 @@
 name: go-iost GitHub CI
-on: push
-#on: workflow_dispatch
+#on: push
+on: workflow_dispatch
 
 # on:
 #   push:
