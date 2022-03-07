@@ -1,10 +1,10 @@
 name: go-iost GitHub CI
-# on: [push]
+ on: [push]
 #on: workflow_dispatch
 
- on:
-   push:
-     branches: [ main ]
+# on:
+#   push:
+#     branches: [ main ]
 
 jobs:
   Mac_Test:
